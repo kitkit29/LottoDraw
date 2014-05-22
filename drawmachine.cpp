@@ -39,7 +39,10 @@ std::vector<int> DrawMachine::DrawNumbers()
         if (!std::binary_search(drawnNums.begin(), drawnNums.end(), num))
             drawnNums.push_back(num);
         else
-            i--;
+        {
+            if (!m_repeating)
+                i--;
+        }
     }
 
     return drawnNums;
@@ -59,4 +62,9 @@ void DrawMachine::initialize()
     fclose(rndFile);
 #endif
     m_gen.seed(seed);
+}
+
+void DrawMachine::setRepeating(bool val)
+{
+    m_repeating = val;
 }

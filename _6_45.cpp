@@ -4,6 +4,7 @@
 _6_45::_6_45()
     : DrawMachine(6, 45)
 {
+    setRepeating(false);
 }
 
 _6_45::~_6_45()
